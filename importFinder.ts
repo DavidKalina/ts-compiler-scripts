@@ -18,6 +18,8 @@ function getTsxImportReferences(node: ts.Node): string[] {
   return references;
 }
 
+const bootstrapImportedComponents: Set<string> = new Set();
+
 function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): boolean {
   if (visitedFiles.has(filePath)) {
     return false; // Avoid circular dependencies
@@ -49,16 +51,12 @@ function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): boolean 
 
   ts.forEachChild(sourceFile, (node) => {
     if (isReactBootstrapImport(node)) {
-      hasReactBootstrapImport = true;
+      bootstrapImportedComponents.add(filePath);
     }
 
     getTsxImportReferences(node).forEach((importPath) => {
-      console.log("Log from inside forEach getTsxImportReferences");
       const absoluteImportPath = path.resolve(path.dirname(filePath), importPath);
-      console.log({ absoluteImportPath });
-      if (traverseTsxFiles(absoluteImportPath, visitedFiles)) {
-        hasReactBootstrapImport = true;
-      }
+      traverseTsxFiles(absoluteImportPath, visitedFiles);
     });
   });
 
@@ -70,8 +68,11 @@ function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): boolean 
 }
 
 // Entry point
-const rootTsxFile = "../../flowty-app/packages/web/src/components/Footer.tsx";
+const rootTsxFile = "../../flowty-app/packages/web/src/components.tsx";
 const visitedFiles = new Set<string>();
-const hasBootstrap = traverseTsxFiles(rootTsxFile, visitedFiles);
+traverseTsxFiles(rootTsxFile, visitedFiles);
 
-console.log({ hasBootstrap });
+fs.writeFileSync(
+  "bootstrapComponents.json",
+  JSON.stringify(Array.from(bootstrapImportedComponents), null, 4)
+);
