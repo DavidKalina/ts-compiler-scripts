@@ -82,7 +82,7 @@ function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): Componen
 }
 
 // Entry point
-const rootTsxFile = "../../flowty-app/packages/web/src/screens/MarketplaceScreen.tsx";
+const rootTsxFile = process.env.ROOT_PATH!;
 const visitedFiles = new Set<string>();
 const rootNode = traverseTsxFiles(rootTsxFile, visitedFiles);
 
