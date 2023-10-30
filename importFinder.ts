@@ -2,6 +2,12 @@ import * as ts from "typescript";
 import * as fs from "fs";
 import * as path from "path";
 
+interface ComponentNode {
+  name: string;
+  children: ComponentNode[];
+  hasReactBootstrap: boolean;
+}
+
 function isReactBootstrapImport(node: ts.Node): boolean {
   if (ts.isImportDeclaration(node) && ts.isStringLiteral(node.moduleSpecifier)) {
     return /react-bootstrap/.test(node.moduleSpecifier.getText());
@@ -18,11 +24,11 @@ function getTsxImportReferences(node: ts.Node): string[] {
   return references;
 }
 
-const bootstrapImportedComponents: Set<string> = new Set();
+// Define the node structure
 
-function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): boolean {
+function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): ComponentNode | null {
   if (visitedFiles.has(filePath)) {
-    return false; // Avoid circular dependencies
+    return null; // Avoid circular dependencies
   }
 
   visitedFiles.add(filePath);
@@ -37,42 +43,50 @@ function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): boolean 
     filePath = path.join(filePath, "index.tsx");
     if (!fs.existsSync(filePath)) {
       console.log(`File not found: ${filePath}`);
-      return false;
+      return null;
     }
   } else if (!fs.existsSync(filePath)) {
     console.log(`File not found: ${filePath}`);
-    return false;
+    return null;
   }
 
   const fileContent = fs.readFileSync(filePath).toString();
   const sourceFile = ts.createSourceFile(filePath, fileContent, ts.ScriptTarget.Latest, true);
 
   let hasReactBootstrapImport = false;
+  const children: ComponentNode[] = [];
 
   ts.forEachChild(sourceFile, (node) => {
     if (isReactBootstrapImport(node)) {
-      bootstrapImportedComponents.add(filePath);
+      hasReactBootstrapImport = true;
     }
 
     getTsxImportReferences(node).forEach((importPath) => {
       const absoluteImportPath = path.resolve(path.dirname(filePath), importPath);
-      traverseTsxFiles(absoluteImportPath, visitedFiles);
+      const childNode = traverseTsxFiles(absoluteImportPath, visitedFiles);
+      if (childNode) {
+        children.push(childNode);
+      }
     });
   });
 
-  if (hasReactBootstrapImport) {
-    console.log(`React-Bootstrap import found in: ${filePath}`);
+  if (!hasReactBootstrapImport && children.length === 0) {
+    return null;
   }
 
-  return hasReactBootstrapImport;
+  return {
+    name: filePath,
+    children: children,
+    hasReactBootstrap: hasReactBootstrapImport,
+  };
 }
 
 // Entry point
-const rootTsxFile = "../../flowty-app/packages/web/src/components.tsx";
+const rootTsxFile = "../../flowty-app/packages/web/src/screens/MarketplaceScreen.tsx";
 const visitedFiles = new Set<string>();
-traverseTsxFiles(rootTsxFile, visitedFiles);
+const rootNode = traverseTsxFiles(rootTsxFile, visitedFiles);
 
-fs.writeFileSync(
-  "bootstrapComponents.json",
-  JSON.stringify(Array.from(bootstrapImportedComponents), null, 4)
-);
+// Write the results to a JSON file
+if (rootNode) {
+  fs.writeFileSync("bootstrapComponentsHierarchy.json", JSON.stringify(rootNode, null, 4));
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component Hierarchy Visualization</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+      .link {
+        fill: none;
+        stroke: #666;
+        stroke-width: 1.5;
+      }
+
+      .node {
+        font: 10px sans-serif;
+      }
+
+      .node circle {
+        fill: #999;
+        stroke: #fff;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tree-container"></div>
+
+    <script>
+      const path = {
+        // Simple basename function to extract file/directory name from a path
+        basename: function (p) {
+          return p.split(/[\\/]/).pop();
+        },
+      };
+
+      // Load the JSON data
+      d3.json("bootstrapComponentsHierarchy.json").then((data) => {
+        // Define the dimensions of your visualization
+        const width = 5000;
+        const height = 3000;
+
+        // Create an SVG container
+        const svg = d3
+          .select("#tree-container")
+          .append("svg")
+          .attr("width", width)
+          .attr("height", height);
+
+        // Create a hierarchical layout
+        const root = d3.hierarchy(data);
+        const treeLayout = d3.tree().size([width, height - 200]);
+        treeLayout(root);
+
+        // Draw links (lines connecting nodes)
+        svg
+          .selectAll(".link")
+          .data(root.links())
+          .enter()
+          .append("line")
+          .classed("link", true)
+          .attr("x1", (d) => d.source.x)
+          .attr("y1", (d) => d.source.y)
+          .attr("x2", (d) => d.target.x)
+          .attr("y2", (d) => d.target.y);
+
+        // Draw nodes
+        const nodes = svg
+          .selectAll(".node")
+          .data(root.descendants())
+          .enter()
+          .append("g")
+          .attr("class", "node")
+          .attr("transform", (d) => `translate(${d.x}, ${d.y})`);
+
+        nodes
+          .append("circle")
+          .attr("r", 4)
+          .style("fill", (d) => (d.data.hasReactBootstrap ? "red" : "blue"));
+
+        nodes
+          .append("text")
+          .attr("dy", -10)
+          .attr("text-anchor", "middle")
+          .text((d) => path.basename(d.data.name));
+      });
+    </script>
+  </body>
+</html>

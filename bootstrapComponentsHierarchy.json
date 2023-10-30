@@ -1,0 +1,381 @@
+{
+    "name": "../../flowty-app/packages/web/src/screens/MarketplaceScreen.tsx",
+    "children": [
+        {
+            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/FlowUI/Collections/CollectionList.tsx",
+            "children": [
+                {
+                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/FlowUI/Collections/CollectionCard.tsx",
+                    "children": [
+                        {
+                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/FlowUI/Collections/CardOrderDisplay.tsx",
+                            "children": [
+                                {
+                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/FlowUI/Collections/ordersCarousel/LoanOrderDisplay.tsx",
+                                    "children": [
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Tokens/tokenDisplays.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/InfoText.tsx",
+                                                    "children": [],
+                                                    "hasReactBootstrap": true
+                                                }
+                                            ],
+                                            "hasReactBootstrap": false
+                                        }
+                                    ],
+                                    "hasReactBootstrap": false
+                                },
+                                {
+                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/FlowUI/Collections/ordersCarousel/NoOrdersDisplay.tsx",
+                                    "children": [
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/FlowUI/Collections/ordersCarousel/BestStorefrontOffers.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Modals/Listings/Storefront/form/StorefrontListingForm.tsx",
+                                                    "children": [
+                                                        {
+                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Modals/Listings/ListingModalContext.tsx",
+                                                            "children": [
+                                                                {
+                                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Modals/Listings/ListingModal.tsx",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Modals/Listings/shared/PreviewCard.tsx",
+                                                                            "children": [],
+                                                                            "hasReactBootstrap": true
+                                                                        }
+                                                                    ],
+                                                                    "hasReactBootstrap": false
+                                                                }
+                                                            ],
+                                                            "hasReactBootstrap": false
+                                                        }
+                                                    ],
+                                                    "hasReactBootstrap": false
+                                                }
+                                            ],
+                                            "hasReactBootstrap": false
+                                        }
+                                    ],
+                                    "hasReactBootstrap": false
+                                }
+                            ],
+                            "hasReactBootstrap": false
+                        }
+                    ],
+                    "hasReactBootstrap": false
+                }
+            ],
+            "hasReactBootstrap": false
+        },
+        {
+            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/OpenSearch/filters/OpenSearchFilter.tsx",
+            "children": [
+                {
+                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/TooltipText.tsx",
+                    "children": [],
+                    "hasReactBootstrap": true
+                }
+            ],
+            "hasReactBootstrap": false
+        },
+        {
+            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/Layout.tsx",
+            "children": [
+                {
+                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Navbar/index.tsx",
+                    "children": [
+                        {
+                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Navbar/components/Search.tsx",
+                            "children": [
+                                {
+                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/routes/index.tsx",
+                                    "children": [
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/Settings/index.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/Settings/Notifications.tsx",
+                                                    "children": [
+                                                        {
+                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Formik/FormikErrorMessage.tsx",
+                                                            "children": [],
+                                                            "hasReactBootstrap": true
+                                                        }
+                                                    ],
+                                                    "hasReactBootstrap": false
+                                                },
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/Settings/ProfileSettings.tsx",
+                                                    "children": [
+                                                        {
+                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/AvatarUploadFormGroup.tsx",
+                                                            "children": [],
+                                                            "hasReactBootstrap": true
+                                                        }
+                                                    ],
+                                                    "hasReactBootstrap": true
+                                                }
+                                            ],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/UserProfileData.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/History.tsx",
+                                                    "children": [
+                                                        {
+                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/Tables/ActivityTable/index.tsx",
+                                                            "children": [
+                                                                {
+                                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/Tables/ActivityTable/UserActivityTableFields.tsx",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Shared/ActivityTableFields.tsx",
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Shared/OverlayValuation.tsx",
+                                                                                    "children": [],
+                                                                                    "hasReactBootstrap": true
+                                                                                }
+                                                                            ],
+                                                                            "hasReactBootstrap": false
+                                                                        }
+                                                                    ],
+                                                                    "hasReactBootstrap": false
+                                                                },
+                                                                {
+                                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Activity/Filters/GenericActivityFilter.tsx",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/Filters/index.tsx",
+                                                                            "children": [],
+                                                                            "hasReactBootstrap": true
+                                                                        }
+                                                                    ],
+                                                                    "hasReactBootstrap": false
+                                                                }
+                                                            ],
+                                                            "hasReactBootstrap": false
+                                                        }
+                                                    ],
+                                                    "hasReactBootstrap": false
+                                                }
+                                            ],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/ActivityScreen.tsx",
+                                            "children": [],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/ProfileScreen.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/FlowUI/Collections/UserCollectionTab.tsx",
+                                                    "children": [],
+                                                    "hasReactBootstrap": true
+                                                },
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/FlowUI/LinkedAccounts/index.tsx",
+                                                    "children": [
+                                                        {
+                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/FlowUI/LinkedAccounts/LinkedAccounts.tsx",
+                                                            "children": [
+                                                                {
+                                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/FlowUI/LinkedAccounts/LinkedAccount.tsx",
+                                                                    "children": [],
+                                                                    "hasReactBootstrap": true
+                                                                }
+                                                            ],
+                                                            "hasReactBootstrap": true
+                                                        }
+                                                    ],
+                                                    "hasReactBootstrap": false
+                                                }
+                                            ],
+                                            "hasReactBootstrap": false
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/RentalListingInfoScreen.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Nfts/Metadata.tsx",
+                                                    "children": [],
+                                                    "hasReactBootstrap": true
+                                                },
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/MarketPlace/Listing/RentalListing/RentalListingInfo.tsx",
+                                                    "children": [],
+                                                    "hasReactBootstrap": true
+                                                }
+                                            ],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/RentalsActivityScreen.tsx",
+                                            "children": [],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/SettingsScreen.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/Settings/index.tsx",
+                                                    "children": [],
+                                                    "hasReactBootstrap": true
+                                                }
+                                            ],
+                                            "hasReactBootstrap": false
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/SwapMarketplaceScreen.tsx",
+                                            "children": [],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/UserRentalScreen.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/UserRenterProfileData.tsx",
+                                                    "children": [],
+                                                    "hasReactBootstrap": true
+                                                }
+                                            ],
+                                            "hasReactBootstrap": false
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/WalletConnected.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/UserData.tsx",
+                                                    "children": [],
+                                                    "hasReactBootstrap": true
+                                                }
+                                            ],
+                                            "hasReactBootstrap": false
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/Collections/CollectionActivityScreen.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/Collections/CollectionActivityLayout.tsx",
+                                                    "children": [
+                                                        {
+                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Collections/CollectionBanner/index.tsx",
+                                                            "children": [],
+                                                            "hasReactBootstrap": true
+                                                        },
+                                                        {
+                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Collections/CollectionTabs/index.tsx",
+                                                            "children": [
+                                                                {
+                                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Navbar/components/TopShot/index.tsx",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Navbar/components/TopShot/TopShotCard/index.tsx",
+                                                                            "children": [],
+                                                                            "hasReactBootstrap": true
+                                                                        }
+                                                                    ],
+                                                                    "hasReactBootstrap": true
+                                                                }
+                                                            ],
+                                                            "hasReactBootstrap": false
+                                                        }
+                                                    ],
+                                                    "hasReactBootstrap": false
+                                                }
+                                            ],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/Collections/CollectionRentalActivityScreen.tsx",
+                                            "children": [],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/Collections/CollectionStorefrontActivityScreen.tsx",
+                                            "children": [],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/LoanListingInfoScreen.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Nfts/LoanListingInfo.tsx",
+                                                    "children": [
+                                                        {
+                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/TxButtons/DelistLoan.tsx",
+                                                            "children": [
+                                                                {
+                                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Modals/funding/FundingLoading.tsx",
+                                                                    "children": [],
+                                                                    "hasReactBootstrap": true
+                                                                },
+                                                                {
+                                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Modals/listing/TxNotSuccessful.tsx",
+                                                                    "children": [],
+                                                                    "hasReactBootstrap": true
+                                                                }
+                                                            ],
+                                                            "hasReactBootstrap": true
+                                                        },
+                                                        {
+                                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/TxButtons/RepayLoan.tsx",
+                                                            "children": [
+                                                                {
+                                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Modals/repay/RepayReadyToBePlaced.tsx",
+                                                                    "children": [],
+                                                                    "hasReactBootstrap": true
+                                                                }
+                                                            ],
+                                                            "hasReactBootstrap": false
+                                                        }
+                                                    ],
+                                                    "hasReactBootstrap": true
+                                                }
+                                            ],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/StorefrontActivityScreen.tsx",
+                                            "children": [],
+                                            "hasReactBootstrap": true
+                                        },
+                                        {
+                                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/screens/UserStorefrontScreen.tsx",
+                                            "children": [
+                                                {
+                                                    "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/UserProfile/UserStorefrontProfileData.tsx",
+                                                    "children": [],
+                                                    "hasReactBootstrap": true
+                                                }
+                                            ],
+                                            "hasReactBootstrap": false
+                                        }
+                                    ],
+                                    "hasReactBootstrap": false
+                                }
+                            ],
+                            "hasReactBootstrap": true
+                        },
+                        {
+                            "name": "/home/david_kalina/work/flowty-app/packages/web/src/components/Navbar/components/WalletConnectedButton.tsx",
+                            "children": [],
+                            "hasReactBootstrap": true
+                        }
+                    ],
+                    "hasReactBootstrap": true
+                }
+            ],
+            "hasReactBootstrap": false
+        }
+    ],
+    "hasReactBootstrap": false
+}
