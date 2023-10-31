@@ -46,10 +46,10 @@
         const totalNodes = root.descendants().length;
 
         // Scale the size based on the number of nodes
-        const widthPerNode = 50;
-        const heightPerNode = 25;
-        const width = totalNodes.length > 20 ? totalNodes * widthPerNode : 1000;
-        const height = totalNodes.length > 20 ? totalNodes * heightPerNode : 1000;
+        const widthPerNode = 100;
+        const heightPerNode = 50;
+        const width = totalNodes > 20 ? totalNodes * widthPerNode : 1000;
+        const height = totalNodes > 20 ? totalNodes * heightPerNode : 1000;
 
         // Create an SVG container
         const svg = d3
