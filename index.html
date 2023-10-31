@@ -24,7 +24,9 @@
     </style>
   </head>
   <body>
-    <div id="tree-container"></div>
+    <div id="tree-container">
+      <button id="download">Download SVG</button>
+    </div>
 
     <script>
       const path = {
@@ -35,10 +37,19 @@
       };
 
       // Load the JSON data
+      // Define the dimensions of your visualization
       d3.json("bootstrapComponentsHierarchy.json").then((data) => {
-        // Define the dimensions of your visualization
-        const width = 5000;
-        const height = 3000;
+        // Create a hierarchical layout
+        const root = d3.hierarchy(data);
+
+        // Compute the total number of nodes
+        const totalNodes = root.descendants().length;
+
+        // Scale the size based on the number of nodes
+        const widthPerNode = 50;
+        const heightPerNode = 25;
+        const width = totalNodes * widthPerNode;
+        const height = totalNodes * heightPerNode;
 
         // Create an SVG container
         const svg = d3
@@ -47,9 +58,7 @@
           .attr("width", width)
           .attr("height", height);
 
-        // Create a hierarchical layout
-        const root = d3.hierarchy(data);
-        const treeLayout = d3.tree().size([width, height - 200]);
+        const treeLayout = d3.tree().size([width - 200, height - 200]);
         treeLayout(root);
 
         // Draw links (lines connecting nodes)
@@ -83,6 +92,17 @@
           .attr("dy", -10)
           .attr("text-anchor", "middle")
           .text((d) => path.basename(d.data.name));
+      });
+
+      document.getElementById("download").addEventListener("click", function () {
+        var svgString = new XMLSerializer().serializeToString(document.querySelector("svg"));
+        var blob = new Blob([svgString], { type: "image/svg+xml" });
+        var url = URL.createObjectURL(blob);
+
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = `tree.svg`;
+        a.click();
       });
     </script>
   </body>
