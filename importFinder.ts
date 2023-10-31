@@ -88,10 +88,11 @@ const outputDir = "./output";
 
 // Entry point
 const rootTsxFile = process.env.ROOT_PATH!;
+
 const visitedFiles = new Set<string>();
 const rootNode = traverseTsxFiles(rootTsxFile, visitedFiles);
 
-console.log({ rootNode });
+console.log(`Found ${bootstrapComponents.size} files that import react-bootstrap.`);
 
 // Write the results to a JSON file
 if (rootNode) {
