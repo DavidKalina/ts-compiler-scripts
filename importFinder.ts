@@ -6,9 +6,24 @@ interface ComponentNode {
   name: string;
   children: ComponentNode[];
   hasReactBootstrap: boolean;
+  importedBootstrapComponents: string[];
 }
 
 const bootstrapComponents: Set<string> = new Set();
+
+function getReactBootstrapImports(node: ts.Node): string[] {
+  if (ts.isImportDeclaration(node) && ts.isStringLiteral(node.moduleSpecifier)) {
+    if (/react-bootstrap/.test(node.moduleSpecifier.getText())) {
+      const importClause = node.importClause;
+      if (importClause && ts.isNamedImports(importClause.namedBindings as ts.NamedImports)) {
+        return (importClause.namedBindings as ts.NamedImports).elements.map((element) =>
+          element.name.getText()
+        );
+      }
+    }
+  }
+  return [];
+}
 
 function isReactBootstrapImport(node: ts.Node): boolean {
   if (ts.isImportDeclaration(node) && ts.isStringLiteral(node.moduleSpecifier)) {
@@ -57,8 +72,16 @@ function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): Componen
 
   let hasReactBootstrapImport = false;
   const children: ComponentNode[] = [];
+  let importedComponents: string[] = [];
 
   ts.forEachChild(sourceFile, (node) => {
+    const reactBootstrapImports = getReactBootstrapImports(node);
+
+    if (reactBootstrapImports.length > 0) {
+      importedComponents = importedComponents.concat(reactBootstrapImports);
+      bootstrapComponents.add(filePath);
+    }
+
     if (isReactBootstrapImport(node)) {
       hasReactBootstrapImport = true;
       bootstrapComponents.add(filePath);
@@ -81,6 +104,7 @@ function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): Componen
     name: filePath,
     children: children,
     hasReactBootstrap: hasReactBootstrapImport,
+    importedBootstrapComponents: importedComponents,
   };
 }
 
