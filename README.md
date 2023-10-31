@@ -1,4 +1,4 @@
-# flowty
+# ts-compiler-scripts
 
 To install dependencies:
 
