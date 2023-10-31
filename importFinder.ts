@@ -81,6 +81,8 @@ function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): Componen
   };
 }
 
+const outputDir = "./output";
+
 // Entry point
 const rootTsxFile = process.env.ROOT_PATH!;
 const visitedFiles = new Set<string>();
@@ -88,5 +90,8 @@ const rootNode = traverseTsxFiles(rootTsxFile, visitedFiles);
 
 // Write the results to a JSON file
 if (rootNode) {
-  fs.writeFileSync("bootstrapComponentsHierarchy.json", JSON.stringify(rootNode, null, 4));
+  fs.writeFileSync(
+    `${outputDir}/bootstrapComponentsHierarchy.json`,
+    JSON.stringify(rootNode, null, 4)
+  );
 }
