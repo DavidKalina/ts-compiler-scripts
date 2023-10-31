@@ -38,7 +38,7 @@
 
       // Load the JSON data
       // Define the dimensions of your visualization
-      d3.json("bootstrapComponentsHierarchy.json").then((data) => {
+      d3.json("./output/bootstrapComponentsHierarchy.json").then((data) => {
         // Create a hierarchical layout
         const root = d3.hierarchy(data);
 
@@ -48,8 +48,8 @@
         // Scale the size based on the number of nodes
         const widthPerNode = 50;
         const heightPerNode = 25;
-        const width = totalNodes * widthPerNode;
-        const height = totalNodes * heightPerNode;
+        const width = totalNodes.length > 20 ? totalNodes * widthPerNode : 1000;
+        const height = totalNodes.length > 20 ? totalNodes * heightPerNode : 1000;
 
         // Create an SVG container
         const svg = d3
