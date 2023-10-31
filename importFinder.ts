@@ -8,6 +8,8 @@ interface ComponentNode {
   hasReactBootstrap: boolean;
 }
 
+const bootstrapComponents: Set<string> = new Set();
+
 function isReactBootstrapImport(node: ts.Node): boolean {
   if (ts.isImportDeclaration(node) && ts.isStringLiteral(node.moduleSpecifier)) {
     return /react-bootstrap/.test(node.moduleSpecifier.getText());
@@ -59,6 +61,7 @@ function traverseTsxFiles(filePath: string, visitedFiles: Set<string>): Componen
   ts.forEachChild(sourceFile, (node) => {
     if (isReactBootstrapImport(node)) {
       hasReactBootstrapImport = true;
+      bootstrapComponents.add(filePath);
     }
 
     getTsxImportReferences(node).forEach((importPath) => {
@@ -88,6 +91,8 @@ const rootTsxFile = process.env.ROOT_PATH!;
 const visitedFiles = new Set<string>();
 const rootNode = traverseTsxFiles(rootTsxFile, visitedFiles);
 
+console.log({ rootNode });
+
 // Write the results to a JSON file
 if (rootNode) {
   fs.writeFileSync(
@@ -95,3 +100,8 @@ if (rootNode) {
     JSON.stringify(rootNode, null, 4)
   );
 }
+
+fs.writeFileSync(
+  `${outputDir}/bootstrapComponentsList.json`,
+  JSON.stringify(Array.from(bootstrapComponents), null, 4)
+);
